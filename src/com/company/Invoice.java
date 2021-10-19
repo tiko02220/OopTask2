@@ -6,6 +6,7 @@ public class Invoice {
     private int quantity;
     private double price;
 
+
     Invoice(String partNumber, String partDescription, int quantity, double price) {
         this.partDescription = partDescription;
         this.partNumber = partNumber;
@@ -55,17 +56,33 @@ public class Invoice {
         return price;
     }
 
-    public double totalInvoice() {
-        return quantity * price;
+    public float totalInvoice() {
+        return (float) (quantity * price);
     }
 
-    public void viewInvoice() {
-        System.out.println("Number of part- " + getPartNumber());
-        System.out.println("Description- " + getPartDescription());
-        System.out.println("Sold items- " + getQuantity());
-        System.out.println("Price of one item- " + getPrice() + "$");
-        System.out.println("Total Invoice- " + totalInvoice() + "$");
+
+    public String toString() {
+        return "Invoice-" + "PartNumber is'" + getPartNumber() + '\n' +
+                "       PartDescription is'" + getPartDescription() + '\n' +
+                "       Quantity is'" + getQuantity() + '\n' +
+                "       Price is'" + getPrice() + "$" + '\n' +
+                "       Total Invoice is'" + totalInvoice() + "$";
 
     }
+
+    public boolean equals(Invoice invoice) {
+        if (getQuantity() == invoice.getQuantity() &&
+                getPrice() == invoice.getPrice() &&
+                getPartNumber().equals(invoice.getPartNumber()) &&
+                getPartDescription().equals(invoice.getPartDescription())) {
+            return true;
+        }
+        else {
+            System.out.println(invoice);
+        }
+        return false;
+    }
+
+
 }
 
