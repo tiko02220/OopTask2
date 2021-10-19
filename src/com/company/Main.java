@@ -2,32 +2,32 @@ package com.company;
 
 
 class Invoice {
-    private String partNm;//partNm = partNumber
-    private String partDs;//partDs = partDescription
+    private String partNumber;
+    private String partDescription;
     private int quantity;
     private double price;
 
-    Invoice(String partNm, String partDs, int quantity, double price) {
-        this.partDs = partDs;
-        this.partNm = partNm;
+    Invoice(String partNumber, String partDescription, int quantity, double price) {
+        this.partDescription = partDescription;
+        this.partNumber = partNumber;
         this.quantity = quantity;
         this.price = price;
     }
 
-    public void setPartNm(String partNm) {
-        this.partNm = partNm;
+    public void setPartNumber(String partNumber) {
+        this.partNumber = partNumber;
     }
 
-    public String getPartNm() {
-        return partNm;
+    public String getPartNumber() {
+        return partNumber;
     }
 
-    public void setPartDs(String partDs) {
-        this.partDs = partDs;
+    public void setPartDescription(String partDescription) {
+        this.partDescription = partDescription;
     }
 
-    public String getPartDs() {
-        return partDs;
+    public String getPartDescription() {
+        return partDescription;
     }
 
     public void setQuantity(int quantity) {
@@ -55,8 +55,8 @@ class Invoice {
     }
 
     public void viewInvoice() {
-        System.out.println("Number of part- " + getPartNm());
-        System.out.println("Description- " + getPartDs());
+        System.out.println("Number of part- " + getPartNumber());
+        System.out.println("Description- " + getPartDescription());
         System.out.println("Sold items- " + getQuantity());
         System.out.println("Price of one item- " + getPrice() + "$");
         System.out.println("Total Invoice- " + totalInvoice() + "$");
@@ -66,9 +66,9 @@ class Invoice {
 
 public class Main {
     public static void main(String[] args) {
-        Invoice invoice = new Invoice("Default", "Default", 0, 0.0);
-        invoice.setPartNm("001A");
-        invoice.setPartDs("Phone");
+        Invoice invoice = new Invoice("Default", "Default", 0, 0);
+        invoice.setPartNumber("001A");
+        invoice.setPartDescription("Phone");
         invoice.setQuantity(10);
         invoice.setPrice(20.10);
         invoice.viewInvoice();
